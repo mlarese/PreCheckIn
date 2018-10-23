@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   /*
   ** Headers of the page
   */
@@ -15,9 +15,7 @@ export default {
     ]
   },
   plugins: ['~/plugins/vuetify.js'],
-  css: [
-    '~/assets/style/app.styl'
-  ],
+  css: ['~/assets/style/app.styl'],
   /*
   ** Customize the progress bar color
   */
@@ -43,8 +41,8 @@ export default {
     /*
     ** Run ESLint on save
     */
-    extend (config, {isDev}) {
-      if (isDev && process.client) {
+    extend (config, ctx) {
+      if (ctx.isDev && ctx.isClient) {
         config.module.rules.push({
           enforce: 'pre',
           test: /\.(js|vue)$/,
