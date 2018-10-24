@@ -1,8 +1,7 @@
 {{#alacarte}}
 const nodeExternals = require('webpack-node-externals')
 const VuetifyLoaderPlugin = require('vuetify-loader/lib/plugin')
-{{/alacarte}}
-  
+{{/alacarte}} 
 module.exports = {
   /*
   ** Headers of the page
