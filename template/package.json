@@ -18,7 +18,7 @@
     {{/alacarte}}
   },
   "devDependencies": {
-     "babel-eslint": "^10.0.1",
+    "babel-eslint": "^10.0.1",
     {{#alacarte}}
     "babel-plugin-transform-imports": "^1.5.1",
     {{/alacarte}}
