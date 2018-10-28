@@ -1,4 +1,8 @@
-export default {
+{{#alacarte}}
+const nodeExternals = require('webpack-node-externals')
+const VuetifyLoaderPlugin = require('vuetify-loader/lib/plugin')
+{{/alacarte}} 
+module.exports = {
   /*
   ** Headers of the page
   */
@@ -15,9 +19,7 @@ export default {
     ]
   },
   plugins: ['~/plugins/vuetify.js'],
-  css: [
-    '~/assets/style/app.styl'
-  ],
+  css: ['~/assets/style/app.styl'],
   /*
   ** Customize the progress bar color
   */
@@ -28,23 +30,14 @@ export default {
   build: {
     {{#alacarte}}
     transpile: [/^vuetify/],
-    babel: {
-      plugins: [
-        ['transform-imports', {
-          'vuetify': {
-            'transform': 'vuetify/es5/components/${member}',
-            'preventFullImport': true
-          }
-        }]
-      ]
-    },
+    plugins: [
+      new VuetifyLoaderPlugin()
+    ],
     {{/alacarte}}
     extractCSS: true,
-    /*
-    ** Run ESLint on save
-    */
-    extend (config, {isDev}) {
-      if (isDev && process.client) {
+    extend (config, ctx) {
+      // Run ESLint on save
+      if (ctx.isDev && ctx.isClient) {
         config.module.rules.push({
           enforce: 'pre',
           test: /\.(js|vue)$/,

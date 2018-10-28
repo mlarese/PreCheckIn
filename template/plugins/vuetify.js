@@ -1,29 +1,22 @@
 import Vue from 'vue'
 {{#alacarte}}
-import {
-  Vuetify,
-  VApp,
-  VCard,
+import Vuetify, {
+  VApp, // required
   VNavigationDrawer,
   VFooter,
-  VList,
-  VBtn,
-  VIcon,
-  VGrid,
   VToolbar
-} from 'vuetify'
+} from 'vuetify/lib'
+import { Ripple } from 'vuetify/lib/directives'
 
 Vue.use(Vuetify, {
   components: {
     VApp,
-    VCard,
     VNavigationDrawer,
     VFooter,
-    VList,
-    VBtn,
-    VIcon,
-    VGrid,
     VToolbar
+  },
+  directives: {
+    Ripple
   }{{#theme}},
   theme: {
     primary: '#9c27b0',
